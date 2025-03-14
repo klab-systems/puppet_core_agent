@@ -1,4 +1,4 @@
-# @summary Configures Puppet Core repository and manages the agent
+# @summary Configures Puppet Core repository and optionally manages the agent install
 #
 # @example
 #   include puppet_core_agent
@@ -17,34 +17,13 @@ class puppet_core_agent (
   Boolean $manage_package,
   String $version,
 ) {
-  $puppet_release = $version ? {
-    /^8/  => 'puppet8',
-    default => fail('Unsupported puppet version')
-  }
-
-  case $facts['os']['family'] {
-    'RedHat': {
-      yumrepo { $puppet_release:
-        ensure   => 'present',
-        name     => $puppet_release,
-        descr    => "Puppet ${puppet_release[6]} Repository el ${facts['os']['release']['major']} - \$basearch",
-        baseurl  => "https://yum-puppetcore.puppet.com/${puppet_release}/el/${facts['os']['release']['major']}/\$basearch",
-        enabled  => '1',
-        gpgkey   => 'https://yum-puppetcore.puppet.com/public/RPM-GPG-KEY-puppet-20250406',
-        gpgcheck => '1',
-        username => 'forge-key',
-        password => Sensitive($forge_api_key),
-        target   => '/etc/yum.repo.d/puppet-core.repo',
-      }
-    }
-    default: {
-      fail('Unsupported Operating System Detected')
-    }
-  }
-
   if $manage_package {
-    package { 'puppet_agent':
-      ensure => $version,
-    }
+    contain puppet_core_agent::repo
+    contain puppet_core_agent::package
+
+    Class['puppet_core_agent::repo']
+    -> Class['puppet_core_agent::package']
+  } else {
+    contain puppet_core_agent::repo
   }
 }
