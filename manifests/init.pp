@@ -1,7 +1,11 @@
 # @summary Configures Puppet Core repository and optionally manages the agent install
 #
-# @example
-#   include puppet_core_agent
+# @example Basic usage
+#   class { 'puppet_core_agent':
+#     forge_api_key  => 'MYAPIKEY',
+#     manage_package => true,
+#     version        => '8.11.0',
+#   }
 #
 # @param forge_api_key
 #  Forge API Key associated with an account that has signed the Puppet Core EULA
