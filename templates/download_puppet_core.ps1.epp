@@ -1,0 +1,13 @@
+$body = @{
+    "version" = "<%= $puppet_core_agent::version %>"
+    "os_name" = "<%= $facts['os']['family'] %>"
+    "os_version" = "<%= $facts['os']['release']['major'] %>"
+    "os_arch" = "<%= $facts['os']['architecture'] %>"
+}
+$username = "forge-key"
+$password = ConvertTo-SecureString <%= $puppet_core_agent::forge_api_key %> -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential($username, $password)
+Invoke-WebRequest -Uri "https://artifacts-puppetcore.puppet.com/v1/download" `
+    -Body $body `
+    -Credential $credential `
+    -OutFile "C:/Windows/Temp/puppet-agent-<%= $puppet_core_agent::version %>-<%= $facts['os']['architecture'] %>.msi"

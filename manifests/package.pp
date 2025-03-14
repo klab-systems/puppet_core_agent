@@ -3,7 +3,14 @@
 # @example
 #   include puppet_core_agent::package
 class puppet_core_agent::package {
-  package { 'puppet-agent':
-    ensure => $puppet_core_agent::version,
+  if $facts['os']['family'] == 'windows' {
+    package { 'puppet-agent':
+      ensure => $puppet_core_agent::version,
+      source => "C:/Windows/Temp/puppet-agent-${puppet_core_agent::version}-${facts['os']['architecture']}.msi",
+    }
+  } else {
+    package { 'puppet-agent':
+      ensure => $puppet_core_agent::version,
+    }
   }
 }

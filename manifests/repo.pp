@@ -43,6 +43,13 @@ class puppet_core_agent::repo {
         },
       }
     }
+    'windows': {
+      exec { 'Download Puppet Core Installer':
+        command  => Sensitive(epp('puppet_core_agent/download_puppet_core.ps1.epp')),
+        creates  => "C:/Windows/Temp/puppet-agent-${puppet_core_agent::version}-${facts['os']['architecture']}.msi",
+        provider => powershell,
+      }
+    }
     default: {
       fail('Unsupported Operating System Detected')
     }
