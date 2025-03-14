@@ -6,6 +6,7 @@ Welcome to puppet_core_agent. This module is to streamline the Puppet Core adopt
 
 1. [Description](#description)
 1. [Setup - The basics of getting started with puppet_core_agent](#setup)
+    * [What puppet_core_agent affects](#what-puppet_core_agent-affects)
     * [Beginning with puppet_core_agent](#beginning-with-puppet_core_agent)
 1. [Usage - Configuration options and additional functionality](#usage)
 
@@ -15,6 +16,13 @@ puppet_core_agent module configures installation sources for the Puppet Core pac
 
 ## Setup
 
+### What puppet_core_agent affects
+
+RedHat - Creates /etc/yum.repo.d/puppet-core.repo ; Optionally installs puppet-agent
+
+Ubuntu - Creates /etc/apt/sources.list.d/$puppet_release.list ; Creates /etc/apt/auth.conf ; Optionally installs puppet-agent
+
+Windows - Executes PowerShell script to download MSI installer to C:\Windows\Temp\ ; Optionally installs agent from local MSI installer
 
 ### Beginning with puppet_core_agent
 
@@ -42,3 +50,5 @@ puppet_core_agent::forge_api_key: MYAPIKEY
 puppet_core_agent::manage_package: true
 puppet_core_agent::version: 8.11.0
 ```
+
+**Note**: Version is not the same on all platforms. Example - for puppet-agent version 8.11.0 on RedHat 9 and Windows Server 2022 set version to '8.11.0' but for Ubuntu 22.04 it is '8.11.0-1jammy'. So be sure to validate the version name is accurate for your operating system version.
