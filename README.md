@@ -27,7 +27,7 @@ You will then need to install the puppet_core_agent module and relevant dependen
 
 Classify target node(s) with the puppet_core_agent_class via a resource-like declaration such as:
 
-```
+```ruby
 class { 'puppet_core_agent':
   forge_api_key => 'MYAPIKEY',
   manage_package => true,
