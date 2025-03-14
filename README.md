@@ -37,7 +37,8 @@ class { 'puppet_core_agent':
 
 OR include puppet_core_agent and pass in your data via hiera with the respective keys.
 
+```yaml
 puppet_core_agent::forge_api_key: MYAPIKEY
 puppet_core_agent::manage_package: true
 puppet_core_agent::version: 8.11.0
-
+```
