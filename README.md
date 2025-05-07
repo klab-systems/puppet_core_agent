@@ -50,5 +50,3 @@ puppet_core_agent::forge_api_key: MYAPIKEY
 puppet_core_agent::manage_package: true
 puppet_core_agent::version: 8.11.0
 ```
-
-**Note**: Version is not the same on all platforms. Example - for puppet-agent version 8.11.0 on RedHat 9 and Windows Server 2022 set version to '8.11.0' but for Ubuntu 22.04 it is '8.11.0-1jammy'. So be sure to validate the version name is accurate for your operating system version.

@@ -3,14 +3,25 @@
 # @example
 #   include puppet_core_agent::package
 class puppet_core_agent::package {
-  if $facts['os']['family'] == 'windows' {
-    package { 'Puppet Agent (64-bit)':
-      ensure => $puppet_core_agent::version,
-      source => "C:/Windows/Temp/puppet-agent-${puppet_core_agent::version}-${facts['os']['architecture']}.msi",
+  case $facts['os']['family'] {
+    'windows': {
+      package { 'Puppet Agent (64-bit)':
+        ensure => $puppet_core_agent::version,
+        source => "C:/Windows/Temp/puppet-agent-${puppet_core_agent::version}-${facts['os']['architecture']}.msi",
+      }
     }
-  } else {
-    package { 'puppet-agent':
-      ensure => $puppet_core_agent::version,
+    'Debian': {
+      package { 'puppet-agent':
+        ensure => "${puppet_core_agent::version}-1${facts['os']['distro']['codename']}",
+      }
+    }
+    'RedHat': {
+      package { 'puppet-agent':
+        ensure => $puppet_core_agent::version,
+      }
+    }
+    default: {
+      fail('Unsupported Operating System Detected')
     }
   }
 }
