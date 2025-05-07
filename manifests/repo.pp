@@ -38,8 +38,8 @@ class puppet_core_agent::repo {
         location => 'https://apt-puppetcore.puppet.com',
         repos    => $puppet_release,
         key      => {
-          'name'   => 'RPM-GPG-KEY-puppet-20250406',
-          'source' => 'https://apt-puppetcore.puppet.com/public/RPM-GPG-KEY-puppet-20250406',
+          'name'   => 'DEB-GPG-KEY-future',
+          'source' => 'https://apt.puppetlabs.com/DEB-GPG-KEY-future',
         },
       }
     }

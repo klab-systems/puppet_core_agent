@@ -17,7 +17,7 @@
 # @param version
 #  Specify the target puppet core agent version
 class puppet_core_agent (
-  String $forge_api_key,
+  Variant[Sensitive[String], String] $forge_api_key,
   Boolean $manage_package,
   String $version,
 ) {
