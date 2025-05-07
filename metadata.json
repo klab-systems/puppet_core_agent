@@ -1,6 +1,6 @@
 {
   "name": "klabsystems-puppet_core_agent",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "klabsystems",
   "summary": "Manage Puppet Core Repositories and optionally the agent installation",
   "license": "MIT",
@@ -29,6 +29,13 @@
   ],
   "operatingsystem_support": [
     {
+      "operatingsystem": "Alma",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
         "10",
@@ -40,6 +47,13 @@
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
         "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Rocky",
+      "operatingsystemrelease": [
         "8",
         "9"
       ]
