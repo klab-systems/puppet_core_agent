@@ -1,6 +1,6 @@
 {
   "name": "klabsystems-puppet_core_agent",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "klabsystems",
   "summary": "Manage Puppet Core Repositories and optionally the agent installation",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "dependencies": [
     {
       "name": "puppetlabs/apt",
-      "version_requirement": ">= 10.0.1 < 11.0.0"
+      "version_requirement": ">= 10.0.1 < 12.0.0"
     },
     {
       "name": "puppetlabs/powershell",
@@ -16,7 +16,7 @@
     },
     {
       "name": "puppetlabs/pwshlib",
-      "version_requirement": ">= 1.2.2 < 2.0.0"
+      "version_requirement": ">= 1.2.2 < 3.0.0"
     },
     {
       "name": "puppetlabs/stdlib",
@@ -24,7 +24,7 @@
     },
     {
       "name": "puppetlabs/yumrepo_core",
-      "version_requirement": ">= 2.1.0 < 3.0.0"
+      "version_requirement": ">= 2.1.0 < 4.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -73,7 +73,8 @@
         "2012R2",
         "2016",
         "2019",
-        "2022"
+        "2022",
+        "2025"
       ]
     }
   ],
@@ -83,7 +84,7 @@
       "version_requirement": ">= 7.24 < 9.0.0"
     }
   ],
-  "pdk-version": "3.4.0",
+  "pdk-version": "3.6.1",
   "template-url": "https://github.com/puppetlabs/pdk-templates#main",
-  "template-ref": "tags/3.4.0.3-0-g8fb22fc"
+  "template-ref": "heads/main-0-ga181866"
 }
