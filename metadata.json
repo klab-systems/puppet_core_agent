@@ -20,7 +20,7 @@
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 9.7.0 < 10.0.0"
+      "version_requirement": ">= 9.7.0 < 11.0.0"
     },
     {
       "name": "puppetlabs/yumrepo_core",
@@ -32,7 +32,8 @@
       "operatingsystem": "Alma",
       "operatingsystemrelease": [
         "8",
-        "9"
+        "9",
+        "10"
       ]
     },
     {
@@ -40,7 +41,8 @@
       "operatingsystemrelease": [
         "10",
         "11",
-        "12"
+        "12",
+        "13"
       ]
     },
     {
@@ -48,14 +50,16 @@
       "operatingsystemrelease": [
         "7",
         "8",
-        "9"
+        "9",
+        "10"
       ]
     },
     {
       "operatingsystem": "Rocky",
       "operatingsystemrelease": [
         "8",
-        "9"
+        "9",
+        "10"
       ]
     },
     {
@@ -64,7 +68,8 @@
         "18.04",
         "20.04",
         "22.04",
-        "24.04"
+        "24.04",
+        "26.04"
       ]
     },
     {
