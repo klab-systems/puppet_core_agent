@@ -8,6 +8,11 @@ class puppet_core_agent::repo {
     default => fail('Unsupported puppet version')
   }
 
+  $forge_api_key_unwrapped = $puppet_core_agent::forge_api_key ? {
+    Sensitive[String] => $puppet_core_agent::forge_api_key.unwrap,
+    default            => $puppet_core_agent::forge_api_key,
+  }
+
   case $facts['os']['family'] {
     'RedHat': {
       yumrepo { $puppet_release:
@@ -19,7 +24,7 @@ class puppet_core_agent::repo {
         gpgkey   => 'https://yum-puppetcore.puppet.com/public/RPM-GPG-KEY-puppet-20250406',
         gpgcheck => '1',
         username => 'forge-key',
-        password => Sensitive($puppet_core_agent::forge_api_key),
+        password => Sensitive($forge_api_key_unwrapped),
         target   => '/etc/yum.repo.d/puppet-core.repo',
       }
     }
@@ -29,7 +34,7 @@ class puppet_core_agent::repo {
           {
             'machine'  => 'apt-puppetcore.puppet.com',
             'login'    => 'forge-key',
-            'password' => $puppet_core_agent::forge_api_key,
+            'password' => $forge_api_key_unwrapped,
           },
         ],
       }
