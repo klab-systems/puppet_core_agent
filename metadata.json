@@ -1,6 +1,6 @@
 {
   "name": "klabsystems-puppet_core_agent",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "author": "klabsystems",
   "summary": "Manage Puppet Core Repositories and optionally the agent installation",
   "license": "MIT",
