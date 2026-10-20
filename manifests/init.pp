@@ -4,7 +4,7 @@
 #   class { 'puppet_core_agent':
 #     forge_api_key  => 'MYAPIKEY',
 #     manage_package => true,
-#     version        => '8.11.0',
+#     version        => '9.1.0',
 #   }
 #
 # @param forge_api_key

@@ -39,7 +39,7 @@ Classify target node(s) with the puppet_core_agent_class via a resource-like dec
 class { 'puppet_core_agent':
   forge_api_key => 'MYAPIKEY',
   manage_package => true,
-  version => '8.11.0',
+  version => '9.1.0',
 }
 ```
 
@@ -48,5 +48,5 @@ OR include puppet_core_agent and pass in your data via hiera with the respective
 ```yaml
 puppet_core_agent::forge_api_key: MYAPIKEY
 puppet_core_agent::manage_package: true
-puppet_core_agent::version: 8.11.0
+puppet_core_agent::version: 9.1.0
 ```

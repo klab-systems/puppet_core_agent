@@ -5,6 +5,7 @@
 class puppet_core_agent::repo {
   $puppet_release = $puppet_core_agent::version ? {
     /^8/  => 'puppet8',
+    /^9/  => 'puppet9',
     default => fail('Unsupported puppet version')
   }
 
